@@ -14,7 +14,7 @@ import axios from 'axios';
 import { endSession, setListening, setLiveQuestion, addAnswer, clearLiveSession } from '../store/slices/sessionsSlice';
 import './SessionPage.css';
 
-const API = process.env.REACT_APP_API_URL || '/api';
+const API = process.env.REACT_APP_API_URL || "ai-assistant-sample.vercel.app" || '/api';
 const H = () => ({ Authorization: `Bearer ${localStorage.getItem('shadow_token')}` });
 const FILLER_WORDS = ['um','uh','like','you know','basically','literally','actually','right','sort of','kind of'];
 const PROCESS_ALIASES = ['chrome_helper','spotify_service','system_updater','audio_daemon','net_monitor'];

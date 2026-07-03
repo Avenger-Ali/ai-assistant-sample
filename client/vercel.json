@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://shadow-ai-server.vercel.app/api/$1"
+      "dest": "https://ai-assistant-sample.vercel.app/api/$1"
     },
     {
       "src": "/(.*)",

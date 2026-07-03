@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API = process.env.REACT_APP_API_URL || '/api';
+const API = process.env.REACT_APP_API_URL || "ai-assistant-sample.vercel.app" || '/api';
 
 export const register = createAsyncThunk('auth/register', async (data, { rejectWithValue }) => {
   try {

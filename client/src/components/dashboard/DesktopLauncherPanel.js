@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector }                        from 'react-redux';
+import { Link }                                            from 'react-router-dom';
 import {
   Monitor, Lock, Zap, Clock, ShieldOff, RefreshCw,
   ExternalLink, AlertTriangle, Copy, Shield, CheckCircle,
 } from 'lucide-react';
-import toast from 'react-hot-toast';
+import toast                                               from 'react-hot-toast';
 import axios from 'axios';
 import {
   requestLaunchToken, fetchMyDesktopSession,
@@ -13,7 +13,7 @@ import {
 } from '../../store/slices/desktopSlice';
 import './DesktopLauncherPanel.css';
 
-const API = process.env.REACT_APP_API_URL || '/api';
+const API = process.env.REACT_APP_API_URL || "ai-assistant-sample.vercel.app" || '/api';
 const H   = () => ({ Authorization: `Bearer ${localStorage.getItem('shadow_token')}` });
 
 function fmt(s) {
