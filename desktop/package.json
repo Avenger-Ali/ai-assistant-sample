@@ -1,0 +1,78 @@
+{
+  "name": "shadow-ai-desktop",
+  "version": "1.0.0",
+  "description": "Shadow AI Desktop Overlay — real-time interview assistant, invisible during screen share",
+  "main": "src/main/main.js",
+  "author": "Shadow AI",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev":   "NODE_ENV=development electron .",
+    "build:mac":   "electron-builder --mac   --publish=never",
+    "build:win":   "electron-builder --win   --publish=never",
+    "build:linux": "electron-builder --linux --publish=never",
+    "build:all":   "electron-builder -mwl    --publish=never",
+    "release":     "electron-builder -mwl    --publish=always"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.shadowai.desktop",
+    "productName": "Shadow AI",
+    "copyright": "Shadow AI",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "publish": {
+      "provider": "github",
+      "owner":    "your-github-username",
+      "repo":     "shadow-ai"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "assets/icon.icns",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
+      ]
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [{ "target": "nsis", "arch": ["x64"] }]
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb",      "arch": ["x64"] }
+      ]
+    },
+    "protocols": [
+      {
+        "name": "Shadow AI Desktop Launch",
+        "schemes": ["shadow-ai-desktop"]
+      }
+    ],
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

@@ -1,0 +1,224 @@
+.desktop-panel {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.desktop-panel__icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--accent-secondary);
+}
+
+.desktop-panel__icon-wrap--locked {
+  background: rgba(107, 98, 160, 0.15);
+  color: var(--text-muted);
+}
+
+.desktop-panel__icon-wrap--active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  animation: desktop-pulse 2s ease-in-out infinite;
+}
+
+@keyframes desktop-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+}
+
+.desktop-panel__body { flex: 1; min-width: 0; }
+
+.desktop-panel__body h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.desktop-panel__body p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.desktop-panel__cta {
+  font-size: 13px !important;
+  padding: 10px 18px !important;
+}
+
+.desktop-panel__hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
+.desktop-panel__hint a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+}
+.desktop-panel__hint a:hover { text-decoration: underline; }
+
+.desktop-panel__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.desktop-panel--active {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  background: linear-gradient(145deg, rgba(16,185,129,0.04), var(--bg-card)) !important;
+}
+
+.desktop-panel__active-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.desktop-panel__active-header h3 { margin-bottom: 0; }
+
+.desktop-panel__live-dot {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6ee7b7;
+}
+
+.desktop-panel__countdown {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.desktop-panel__countdown-time {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.desktop-panel__countdown-time--low {
+  color: #f87171;
+  animation: desktop-blink 1s step-start infinite;
+}
+
+@keyframes desktop-blink {
+  50% { opacity: 0.5; }
+}
+
+.desktop-panel__clock-icon--low { color: #f87171; }
+
+.desktop-panel__countdown-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.desktop-panel__bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(124, 58, 237, 0.1);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.desktop-panel__bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width 1s linear;
+}
+
+.desktop-panel__bar-fill--low {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.desktop-panel__warning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 8px;
+  padding: 7px 10px;
+  margin-bottom: 12px;
+}
+
+.desktop-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.desktop-panel__action-btn {
+  font-size: 12px !important;
+  padding: 7px 12px !important;
+}
+
+.desktop-panel__revoke-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.desktop-panel__revoke-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* ── Admin variants ── */
+.desktop-panel--admin {
+  border-color: rgba(251,191,36,.3) !important;
+}
+.desktop-panel--admin-active {
+  border-color: rgba(251,191,36,.4) !important;
+  background: linear-gradient(145deg, rgba(251,191,36,.04), var(--bg-card)) !important;
+}
+.desktop-panel__admin-tag {
+  font-size: 9px; font-weight: 800; letter-spacing: .06em;
+  background: rgba(251,191,36,.15); color: #fbbf24;
+  border: 1px solid rgba(251,191,36,.35); padding: 2px 7px; border-radius: 100px;
+}
+.desktop-panel__admin-token-row {
+  display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+  padding: 8px 10px; background: rgba(16,185,129,.06);
+  border: 1px solid rgba(16,185,129,.2); border-radius: 8px;
+  font-size: 11px; color: var(--text-secondary);
+}
+.desktop-panel__token-copy-btn {
+  display: flex; align-items: center; gap: 4px; margin-left: auto;
+  background: none; border: 1px solid var(--border-subtle); border-radius: 5px;
+  color: var(--text-muted); font-size: 10px; padding: 3px 8px; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+}
+.desktop-panel__token-copy-btn:hover { border-color: var(--border-active); color: var(--text-primary); }

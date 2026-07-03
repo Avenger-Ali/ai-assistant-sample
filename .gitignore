@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Build outputs
+client/build/
+desktop/dist/
+desktop/out/
+
+# Environment (never commit real credentials)
+.env
+server/.env
+client/.env
+desktop/.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploads
+server/uploads/*
+!server/uploads/.gitkeep

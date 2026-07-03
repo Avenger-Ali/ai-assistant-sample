@@ -1,0 +1,15 @@
+# Netlify config for the React client
+[build]
+  base    = "client"
+  command = "npm run build"
+  publish = "build"
+
+[[redirects]]
+  from   = "/api/*"
+  to     = "https://your-render-server.onrender.com/api/:splat"
+  status = 200
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
